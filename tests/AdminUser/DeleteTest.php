@@ -121,5 +121,41 @@ class AdminUser_DeleteTest extends Mage_Selenium_TestCase
         //Verifying
         $this->assertTrue($this->errorMessage('cannot_delete_account'), $this->messages);
     }
+    
+    /**
+     * <p>Delete those Admin User that created during the test).</p>
+     * <p>Steps:</p>
+     * <p>1.Search for the users that created during the test</p>
+     * <p>2.Press "Delete User" button.</p>
+     * <p>repeat till all of users deleted.</p>
+     * <p>Users successfully deleted.</p>
+     * <p>Message "The user has been deleted." is displayed.</p>
+     *
+     * @test
+     */
+    public function DeleteCreatedAdminUsers()
+    {
+        //Data
+        $isUserPresents = 1;
+        $searchData = $this->loadData('search_admin_user', array('email' => '%noValue%', 'user_name' => '%noValue%'));
+        //Steps
+        //Searching
+        $this->addParameter('user_first_last_name',
+                $searchData['first_name'] . ' ' . $searchData['last_name']);
+        while($isUserPresents){
+        if ($this->searchAndOpen($searchData)){
+            
+        //Steps
+        $this->clickButtonAndConfirm('delete_user', 'confirmation_for_delete');
+        //Verifying
+        $this->assertTrue($this->successMessage('success_deleted_user'), $this->messages);
+        }
+        else{
+            $isUserPresents = 0;
+            echo 'All of testing admin users deleted.';
+        }
+        }
+        
+    }
 
 }
