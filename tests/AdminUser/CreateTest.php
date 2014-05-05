@@ -41,6 +41,7 @@ class AdminUser_CreateTest extends Mage_Selenium_TestCase
      * <p>Preconditions:</p>
      * <p>Log in to Backend.</p>
      * <p>Navigate to System -> Permissions -> Users./p>
+     * @group dev
      */
     protected function assertPreConditions()
     {
@@ -58,6 +59,8 @@ class AdminUser_CreateTest extends Mage_Selenium_TestCase
      * <p>3. Verify that 'Back' button is present.</p>
      * <p>4. Verify that 'Save User' button is present.</p>
      * <p>5. Verify that 'Reset' button is present.</p>
+     * 
+     * @group dev
      */
     public function test_Navigation()
     {
@@ -82,6 +85,7 @@ class AdminUser_CreateTest extends Mage_Selenium_TestCase
      * <p>Message "The user has been saved." is displayed.</p>
      *
      * @depends test_Navigation
+     * @group dev
      */
     public function test_WithRequiredFieldsOnly()
     {
@@ -195,32 +199,41 @@ class AdminUser_CreateTest extends Mage_Selenium_TestCase
      * <p>Message "The user has been saved." is displayed.</p>
      *
      * @depends test_WithRequiredFieldsOnly
+     * @group dev
      */
-    
-    
-     // block this test as couldn't find the reason why is failed even the manual test is passed.
-  /*  public function test_WithSpecialCharacters_exeptEmail()
-    {
-        //Data
-        $specialCharacters = array(
-            'user_name'  => $this->generate('string', 32, ':punct:'),
-            'first_name' => $this->generate('string', 32, ':punct:'),
-            'last_name'  => $this->generate('string', 32, ':punct:'),
-        );
-        $userData = $this->loadData('generic_admin_user', $specialCharacters, 'email');
-        //Steps
-        $this->adminUserHelper()->createAdminUser($userData);
-        //Verifying
-        $this->assertTrue($this->successMessage('success_saved_user'), $this->messages);
-        //$this->assertTrue($this->checkCurrentPage('edit_admin_user'), $this->messages);  change to as below as this could be changed by Tundra 
-        $this->assertTrue($this->checkCurrentPage('manage_admin_users'), $this->messages);
-        $this->assertTrue(
-                $this->verifyForm(
-                        $userData, 'user_info', array('password', 'password_confirmation')
-                ), $this->messages);
-    }
+    //this test will be failed occasionally, caused by ? character, need to find a solution for it. 
+//    public function test_WithSpecialCharacters_exeptEmail()
+//    {
+//        //Data
+//        $specialCharacters = array(
+//            'user_name'  => $this->generate('string', 32, ':punct:'),
+//            'first_name' => $this->generate('string', 32, ':punct:'),
+//            'last_name'  => $this->generate('string', 32, ':punct:'),
+//        );
+//        $userData = $this->loadData('generic_admin_user', $specialCharacters, 'email');
+//        $searchData = $this->loadData('search_admin_user',
+//                array('email' => $userData['email'], 'user_name' => $userData['user_name'],
+//                    'first_name' => $userData['first_name'], 'last_name' => $userData['last_name']));
+//        //Steps
+//        $this->adminUserHelper()->createAdminUser($userData);
+//        //Verifying
+//        $this->assertTrue($this->successMessage('success_saved_user'), $this->messages);
+//        $this->assertTrue($this->checkCurrentPage('manage_admin_users'), $this->messages);
+//        //Searching
+//        $this->addParameter('user_first_last_name',
+//                $searchData['first_name'] . ' ' . $searchData['last_name']);
+//        $this->assertTrue($this->searchAndOpen($searchData), 'Admin User is not found');
+//        //Steps
+//        $this->assertTrue(
+//                $this->verifyForm(
+//                        $userData, 'user_info', array('password', 'password_confirmation')
+//                ), $this->messages);
+//        
+//        $this->clickButtonAndConfirm('delete_user', 'confirmation_for_delete');
+//        //Verifying
+//        $this->assertTrue($this->successMessage('success_deleted_user'), $this->messages);
+//    }
      
-    */
     
     /**
      * <p>Create Admin User (all required fields are filled by long value data).</p>
@@ -234,9 +247,10 @@ class AdminUser_CreateTest extends Mage_Selenium_TestCase
      * <p>Message "The user has been saved." is displayed.</p>
      *
      * @depends test_WithRequiredFieldsOnly
+     * @group dev
      */
     
-    /**
+    
     public function test_WithLongValues()
     {
         //Data
@@ -250,19 +264,30 @@ class AdminUser_CreateTest extends Mage_Selenium_TestCase
             'password_confirmation' => $password
         );
         $userData = $this->loadData('generic_admin_user', $longValues);
+        $searchData = $this->loadData('search_admin_user',
+                array('email' => $userData['email'], 'user_name' => $userData['user_name'],
+                    'first_name' => $userData['first_name'], 'last_name' => $userData['last_name']));
         //Steps
         $this->adminUserHelper()->createAdminUser($userData);
         //Verifying
         $this->assertTrue($this->successMessage('success_saved_user'), $this->messages);
-        //$this->assertTrue($this->checkCurrentPage('edit_admin_user'), $this->messages);
         $this->assertTrue($this->checkCurrentPage('manage_admin_users'), $this->messages);
+        //Searching
+        $this->addParameter('user_first_last_name',
+                $searchData['first_name'] . ' ' . $searchData['last_name']);
+        $this->assertTrue($this->searchAndOpen($searchData), 'Admin User is not found');
+        //Verifying the data saved match the expectation 
         $this->assertTrue(
                 $this->verifyForm(
                         $userData, 'user_info', array('password', 'password_confirmation')
                 ), $this->messages);
+        //Delete the created user
+        $this->clickButtonAndConfirm('delete_user', 'confirmation_for_delete');
+        //Verify the user was deleted successfully
+        $this->assertTrue($this->successMessage('success_deleted_user'), $this->messages);
     }
 
-    **/
+    
     /**
      * <p>Create Admin User. Use wrong values for 'password' fields.</p>
      * <p>Steps:</p>
