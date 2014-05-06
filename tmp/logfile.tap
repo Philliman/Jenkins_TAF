@@ -1,0 +1,33 @@
+TAP version 13
+not ok 1 - Failure: AdminUser_LoginTest::loginValidUser
+  ---
+  message: 'Current URL: http://master.staging.kmddev.co.nz/index.php/admin/index/index/key/1fa2067d4c1c642c07a0e794ecdaa32cf59f14bacafb4a0598aa6ad23110336d/'
+  severity: fail
+  ...
+ok 1 - # SKIP This test depends on "AdminUser_LoginTest::loginValidUser" to pass.
+ok 1 - # SKIP This test depends on "AdminUser_LoginTest::loginValidUser" to pass.
+ok 1 - # SKIP This test depends on "AdminUser_LoginTest::loginValidUser" to pass.
+ok 1 - # SKIP This test depends on "AdminUser_LoginTest::loginValidUser" to pass.
+ok 1 - # SKIP This test depends on "AdminUser_LoginTest::loginValidUser" to pass.
+ok 1 - # SKIP This test depends on "AdminUser_LoginTest::loginValidUser" to pass.
+not ok 2 - Failure: AdminUser_LoginTest::forgotEmptyPassword
+  ---
+  message: 'Can''t find page for url: http://master.staging.kmddev.co.nz/index.php/admin/index/forgotpassword/'
+  severity: fail
+  ...
+not ok 3 - Failure: AdminUser_LoginTest::forgotPasswordInvalidEmail
+  ---
+  message: 'Can''t find page for url: http://master.staging.kmddev.co.nz/index.php/admin/index/forgotpassword/'
+  severity: fail
+  ...
+not ok 4 - Failure: AdminUser_LoginTest::forgotPasswordCorrectEmail
+  ---
+  message: 'Can''t find page for url: http://master.staging.kmddev.co.nz/index.php/admin/index/forgotpassword/'
+  severity: fail
+  ...
+not ok 5 - Failure: AdminUser_LoginTest::forgotPasswordOldPassword
+  ---
+  message: 'Can''t find page for url: http://master.staging.kmddev.co.nz/index.php/admin/index/forgotpassword/'
+  severity: fail
+  ...
+1..5
