@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="AttributeSet Tests" tests="8" assertions="444" failures="1" errors="0" time="357.417550">
+    <testsuite name="AttributeSet_CreateTest" file="C:\Programs\taf\tests\AttributeSet\CreateTest.php" fullPackage="selenium.tests" package="selenium" subpackage="tests" tests="6" assertions="289" failures="1" errors="0" time="244.302240">
+      <testcase name="basedOnDefault" class="AttributeSet_CreateTest" file="C:\Programs\taf\tests\AttributeSet\CreateTest.php" line="70" assertions="60" time="83.024634"/>
+      <testcase name="withNameThatAlreadyExists" class="AttributeSet_CreateTest" file="C:\Programs\taf\tests\AttributeSet\CreateTest.php" line="96" assertions="39" time="10.199000"/>
+      <testcase name="withEmptyName" class="AttributeSet_CreateTest" file="C:\Programs\taf\tests\AttributeSet\CreateTest.php" line="118" assertions="40" time="8.740000"/>
+      <testcase name="withLongValues" class="AttributeSet_CreateTest" file="C:\Programs\taf\tests\AttributeSet\CreateTest.php" line="142" assertions="60" time="68.856259"/>
+      <testcase name="withSpecialCharacters" class="AttributeSet_CreateTest" file="C:\Programs\taf\tests\AttributeSet\CreateTest.php" line="169" assertions="60" time="64.930492"/>
+      <testcase name="addUserProductAttributesToNewGroup" class="AttributeSet_CreateTest" file="C:\Programs\taf\tests\AttributeSet\CreateTest.php" line="202" assertions="30" time="8.551855">
+        <failure type="PHPUnit_Framework_AssertionFailedError">AttributeSet_CreateTest::addUserProductAttributesToNewGroup
+Cannot find specified Store View with name 'Default Store View'
+
+C:\Programs\taf\tests\ProductAttribute\Helper.php:167
+C:\Programs\taf\tests\ProductAttribute\Helper.php:51
+C:\Programs\taf\tests\AttributeSet\CreateTest.php:219
+C:\Programs\taf\lib\Mage\Selenium\TestCase.php:2704
+C:\Programs\taf\lib\Mage\Selenium\TestCase.php:2603
+</failure>
+      </testcase>
+    </testsuite>
+    <testsuite name="AttributeSet_DeleteTest" file="C:\Programs\taf\tests\AttributeSet\DeleteTest.php" fullPackage="selenium.tests" package="selenium" subpackage="tests" tests="2" assertions="155" failures="0" errors="0" time="113.115310">
+      <testcase name="withProducts" class="AttributeSet_DeleteTest" file="C:\Programs\taf\tests\AttributeSet\DeleteTest.php" line="81" assertions="124" time="107.203719"/>
+      <testcase name="deleteDefaultSet" class="AttributeSet_DeleteTest" file="C:\Programs\taf\tests\AttributeSet\DeleteTest.php" line="111" assertions="31" time="5.911591"/>
+    </testsuite>
+    <testsuite name="AttributeSet_Helper" file="C:\Programs\taf\tests\AttributeSet\Helper.php" fullPackage="selenium.tests" package="selenium" subpackage="tests" tests="0" assertions="0" failures="0" errors="0" time="0.000000"/>
+  </testsuite>
+</testsuites>
