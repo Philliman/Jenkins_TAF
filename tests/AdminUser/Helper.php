@@ -86,5 +86,24 @@ class AdminUser_Helper extends Mage_Selenium_TestCase
                                     self::$xpathValidationMessage));
          $this->validatePage();
     }
+    
+    /**
+     * Delete created admin users
+     * @param type $emailData
+     */
+    public function deleteAdminUsers($email)
+    { 
+        $this->clickControl('link', 'forgot_password');
+        $this->assertTrue($this->checkCurrentPage('forgot_password'));
+        $this->fillForm($emailData);
+        $this->$this->clickButtonAndConfirm('delete_user', 'confirmation_for_delete');
+        //Verifying('retrieve_password', false);
+        $this->waitForElement(array(self::$xpathSuccessMessage,
+                                    self::$xpathErrorMessage,
+                                    self::$xpathValidationMessage));
+         $this->validatePage();
+        }
+    }
 
-}
+
+

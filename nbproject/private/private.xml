@@ -12,17 +12,13 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Programs/taf/tests/DevSingleTest.php</file>
-            <file>file:/C:/Programs/taf/lib/functions.php</file>
-            <file>file:/C:/Programs/taf/uimaps/admin/AdminUsers.yml</file>
-            <file>file:/C:/Programs/taf/lib/Mage/Selenium/TestCase.php</file>
-            <file>file:/C:/Programs/taf/tests/AdminUser/LoginTest.php</file>
-            <file>file:/C:/Programs/taf/uimaps/admin/SystemConfiguration.yml</file>
-            <file>file:/C:/Programs/taf/tests/SystemConfiguration/Helper.php</file>
-            <file>file:/C:/Programs/taf/config/browsers.yml</file>
-            <file>file:/C:/Programs/taf/tests/AdminUser/Helper.php</file>
-            <file>file:/C:/Programs/taf/tests/AdminUser/CreateTest.php</file>
-            <file>file:/C:/Programs/taf/data/AdminUsers.yml</file>
+            <file>file:/C:/Users/philch/Documents/GitHub/Jenkins_TAF/AdminUser.xml</file>
+            <file>file:/C:/Users/philch/Documents/GitHub/Jenkins_TAF/tests/AdminUser/DeleteTest.php</file>
+            <file>file:/C:/Users/philch/Documents/GitHub/Jenkins_TAF/tests/AdminUser/deleteAdminUsers.php</file>
+            <file>file:/C:/Users/philch/Documents/GitHub/Jenkins_TAF/tests/AdminUser/CreateTest.php</file>
+            <file>file:/C:/Users/philch/Documents/GitHub/Jenkins_TAF/lib/Mage/Selenium/Helper/Page.php</file>
+            <file>file:/C:/Users/philch/Documents/GitHub/Jenkins_TAF/lib/Mage/Selenium/TestCase.php</file>
+            <file>file:/C:/Users/philch/Documents/GitHub/Jenkins_TAF/.gitignore</file>
         </group>
     </open-files>
 </project-private>

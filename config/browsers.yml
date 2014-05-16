@@ -24,7 +24,6 @@
 # @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
 # @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 #
----
 browsers:
     firefox: &firefox
         browser: '*firefox'
@@ -35,8 +34,8 @@ browsers:
     default: *firefox
 applications:
     magento: &magento
-        frontendUrl: http://nz.kmdtest.tundra.com.au/
-        adminUrl: http://nz.kmdtest.tundra.com.au/admin/
+        frontendUrl: http://staging.kmddev.co.nz/
+        adminUrl: http://staging.kmddev.co.nz/admin/
         adminLogin: taf_tester
         adminPassword: tester123
     default: *magento
