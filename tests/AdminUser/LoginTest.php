@@ -42,7 +42,7 @@ class AdminUser_LoginTest extends Mage_Selenium_TestCase
         $this->loginAdminUser();
         $this->navigate('system_configuration', false);
         /*  
-         *this keeps go wrong as failed to navigate to find expected dropdown list and the defaul setting matched what this line want to do so command it out 
+         *this keeps go wrong as failed to navigate to find expected dropdown list and the default setting matched what this line want to do so command it out 
         $this->systemConfigurationHelper()->configure('disable_admin_captcha');
     
          */ 
@@ -56,7 +56,7 @@ class AdminUser_LoginTest extends Mage_Selenium_TestCase
     protected function assertPreConditions()
     {
         $this->setArea('admin');
-        $this->navigate('log_in_to_admin', false);
+        $this->logoutAdminUser();
         if (!$this->checkCurrentPage('log_in_to_admin') && $this->isElementPresent(self::$xpathLogOutAdmin)) {
             $this->logoutAdminUser();
         }

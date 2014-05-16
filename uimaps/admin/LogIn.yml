@@ -23,7 +23,7 @@
 # @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
 # @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 #
----
+
 #Log in to Admin Panel page
 log_in_to_admin:
     mca:
@@ -55,7 +55,7 @@ log_in_to_admin:
 
 
 log_in_admin_page:
-    mca: index/login/
+    mca: admin/index/login/
     title: Log into Magento Admin Page
     uimap: *adminUimap
 
