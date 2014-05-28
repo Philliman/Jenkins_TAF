@@ -28,7 +28,7 @@
 
 # 'Users' page
 manage_admin_users:
-    mca: admin/permissions_user/
+    mca: permissions_user/
     click_xpath: //ul[@id='nav']//a[contains(@href, 'permissions_user')]
     title: Users / Permissions / System / Magento Admin
     uimap:
@@ -66,7 +66,7 @@ manage_admin_users:
 
 # 'New User' page
 new_admin_user:
-    mca: admin/permissions_user/new/
+    mca: permissions_user/new/
     title: New User / Users / Permissions / System / Magento Admin
     uimap:
         form: &adminUserForm
@@ -114,7 +114,7 @@ new_admin_user:
 
 # 'Edit User' page
 edit_admin_user:
-    mca: admin/permissions_user/edit/user_id/%id%/
+    mca: permissions_user/edit/user_id/%id%/
     title: %user_first_last_name% / Users / Permissions / System / Magento Admin
     uimap:
         form: *adminUserForm
@@ -126,7 +126,7 @@ edit_admin_user:
         messages: *adminUserMessages
 
 new_admin_user_with_error:
-    mca: admin/permissions_user/edit/
+    mca: permissions_user/edit/
     title: New User / Users / Permissions / System / Magento Admin
     uimap:
         form: *adminUserForm
@@ -138,7 +138,7 @@ new_admin_user_with_error:
 
 # 'Roles' page
 manage_roles:
-    mca: admin/permissions_role/
+    mca: permissions_role/
     click_xpath: //ul[@id='nav']//a[contains(@href, 'permissions_role')]
     title: Roles / Permissions / System / Magento Admin
     uimap:
@@ -162,7 +162,7 @@ manage_roles:
 
 # 'New Role' page
 new_role:
-    mca: admin/permissions_role/editrole/
+    mca: permissions_role/editrole/
     title: New Role / Roles / Permissions / System / Magento Admin
     uimap:
         form: &newRoleForm
@@ -205,7 +205,7 @@ new_role:
 
 # 'Edit Role' page
 edit_role:
-    mca: admin/permissions_role/editrole/rid/%role_id%/
+    mca: permissions_role/editrole/rid/%role_id%/
     title: %roleName% / Roles / Permissions / System / Magento Admin
     uimap:
         form: &editRoleForm
@@ -269,7 +269,7 @@ edit_role:
 
 # 'My Account' page
 my_account:
-    mca: admin/system_account/
+    mca: system_account/
     click_xpath: //ul[@id='nav']//a[contains(@href, 'system_account')]
     title: My Account / System / Magento Admin
     uimap:
