@@ -29,7 +29,7 @@
 
 onepage_checkout:
     mca: checkout/onepage/
-    click_xpath: //ul[@class='links']//a[text()= 'Checkout']
+    click_xpath: //div[@class='navbar-form pull-right']//a[@class= 'btn btn-default btn-large']
     title: Checkout
     uimap:
         form: &checkoutForm
@@ -48,58 +48,62 @@ onepage_checkout:
                             register: //input[@id='login:register']
                         links:
                             forgot_password: //a[text()='Forgot your password?']
+                            
                 -
-                    billing_information:
-                        xpath: //ol[@id='checkoutSteps']//li[@id='opc-billing']
+                    Add_a_Summit_Club_ID:
+                        xpath: //div[@id='checkout-form-container']//div[@class='well']
                         buttons:
-                            billing_information_continue: //li[@id='opc-billing']//button[span='Continue']
+                            activate_pricing: //button[@type='submit']
+                        fields:
+                            summit_club_id: //input[@name="summit-club-id"]
+                 
+                -
+                    customer-details:
+                        xpath: //div[@id='checkout-form-container']//form[@id='easycheckout-form']
                         dropdowns:
                             billing_address_choice: //select[@id='billing-address-select']
-                            billing_state: //select[@id='billing:region_id']
-                            billing_country: //select[@id='billing:country_id']
+                            billing_state: //select[@id='billing_region_id']
+                            billing_country: //select[@id='billing_country_id']
                         fields:
-                            billing_first_name: //input[@id='billing:firstname']
-                            billing_last_name: //input[@id='billing:lastname']
-                            billing_company: //input[@id='billing:company']
-                            billing_email: //input[@id='billing:email']
-                            billing_street_address_1: //input[@id='billing:street1']
-                            billing_street_address_2: //input[@id='billing:street2']
-                            billing_city: //input[@id='billing:city']
-                            billing_region: //input[@id='billing:region']
-                            billing_zip_code: //input[@id='billing:postcode']
-                            billing_telephone: //input[@id='billing:telephone']
-                            billing_fax: //input[@id='billing:fax']
-                            billing_password: //input[@id='billing:customer_password']
-                            billing_confirm_password: //input[@id='billing:confirm_password']
+                            billing_first_name: //input[@id='billing_firstname']
+                            billing_last_name: //input[@id='billing_lastname']
+                            billing_company: //input[@id='billing_company']
+                            billing_email: //input[@id='billing_email']
+                            billing_street_address_1: //input[@id='billing_street1']
+                            billing_street_address_2: //input[@id='billing_street2']
+                            billing_city: //input[@id='billing_city']
+                            billing_region: //input[@id='billing_region']
+                            billing_zip_code: //input[@id='billing_postcode'][@class='input-medium']
+                            billing_town: //input[@id='billing_town']
+                            billing_telephone: //input[@id='billing_telephone']
+                            billing_fax: //input[@id='billing_fax']
+                            billing_password: //input[@id='billing_customer_password']
+                            billing_confirm_password: //input[@id='billing_confirm_password']
                         checkboxes:
-                            billing_save_in_address_book: //input[@id='billing:save_in_address_book']
+                            billing_save_in_address_book: //input[@id='billing_save_in_address_book']
                         radiobuttons:
-                            ship_to_this_address: //input[@id='billing:use_for_shipping_yes']
-                            ship_to_different_address: //input[@id='billing:use_for_shipping_no']
+                            ship_to_this_address: //input[@id='billing_use_for_shipping_yes']
+                            ship_to_different_address: //input[@id='billing_use_for_shipping_no']
                         required: [billing_first_name, billing_last_name, billing_email, billing_street_address_1, billing_city, billing_region, billing_country, billing_zip_code, billing_telephone]
                 -
                     shipping_information:
-                        xpath: //ol[@id='checkoutSteps']//li[@id='opc-shipping']
-                        buttons:
-                            shipping_information_continue: //li[@id='opc-shipping']//button[span='Continue']
+                        xpath: //form[@id='easycheckout-form']//div[div/h3[contains(text(),'Shipping Details')]]
                         dropdowns:
                             shipping_address_choice: //select[@id='shipping-address-select']
-                            shipping_state: //select[@id='shipping:region_id']
-                            shipping_country: //select[@id='shipping:country_id']
+                            shipping_state: //select[@id='shipping_region_id']
+                            shipping_country: //select[@id='shipping_country_id']
                         fields:
-                            shipping_first_name: //input[@id='shipping:firstname']
-                            shipping_last_name: //input[@id='shipping:lastname']
-                            shipping_company: //input[@id='shipping:company']
-                            shipping_street_address_1: //input[@id='shipping:street1']
-                            shipping_street_address_2: //input[@id='shipping:street2']
-                            shipping_city: //input[@id='shipping:city']
-                            shipping_region: //input[@id='shipping:region']
-                            shipping_zip_code: //input[@id='shipping:postcode']
-                            shipping_telephone: //input[@id='shipping:telephone']
-                            shipping_fax: //input[@id='shipping:fax']
+                            shipping_first_name: //input[@id='shipping_firstname']
+                            shipping_last_name: //input[@id='shipping_lastname']
+                            shipping_company: //input[@id='shipping_company']
+                            shipping_street_address_1: //input[@id='shipping_street1']
+                            shipping_street_address_2: //input[@id='shipping_street2']
+                            shipping_city: //input[@id='shipping_city']
+                            shipping_region: //input[@id='shipping_region']
+                            shipping_zip_code: //input[@id='shipping_postcode']
+                            shipping_telephone: //input[@id='shipping_telephone']
                         checkboxes:
-                            shipping_save_in_address_book: //input[@id='shipping:save_in_address_book']
-                            use_billing_address: //input[@id='shipping:same_as_billing']
+                            use_billing_address: //input[@id='billing_use_for_shipping_yes']
                         links:
                             back: //li[@id='opc-shipping']//p[@class='back-link']/a[@href]
                         required: [shipping_first_name, shipping_last_name, shipping_street_address_1, shipping_city, shipping_state, shipping_country, shipping_zip_code, shipping_telephone]
@@ -127,7 +131,7 @@ onepage_checkout:
                             back: //li[@id='opc-shipping_method']//p[@class='back-link']/a[@href]
                 -
                     payment_method:
-                        xpath: //ol[@id='checkoutSteps']//li[@id='opc-payment']
+                        xpath: //form[@id='easycheckout-form']//div[@id="easycheckout-paymentmethod"]
                         buttons:
                             payment_method_continue: //li[@id='opc-payment']//button[span='Continue']
                         radiobuttons:
@@ -144,46 +148,34 @@ onepage_checkout:
                         links:
                             back: //li[@id='opc-payment']//p[@class='back-link']/a[@href]
                         required: [card_type, card_number, expiration_month, expiration_year, card_verification_number, name_on_card]
-                -
-                    3d_secure_card_validation: &3DSecureCardValidation
-                        xpath: //iframe[@id='centinel_authenticate_iframe']
-                        fields:
-                            3d_password: //input[@name='external.field.password']
-                        buttons:
-                            3d_submit: //input[@value='Submit']
-                            3d_continue: //input[@value='Continue']
-                -
+#                -
+#                    3d_secure_card_validation: &3DSecureCardValidation
+#                        xpath: //iframe[@id='centinel_authenticate_iframe']
+#                        fields:
+#                            3d_password: //input[@name='external.field.password']
+#                        buttons:
+#                            3d_submit: //input[@value='Submit']
+#                            3d_continue: //input[@value='Continue']
+#                -
                     order_review:
-                        xpath: //ol[@id='checkoutSteps']//li[@id='opc-review']
-                        pageelements:
-                            product_table_head: //table[@id='checkout-review-table']/thead
-                            price_totals: //table[@id='checkout-review-table']/tfoot
-                            product_line:  //table[@id='checkout-review-table']/tbody/tr
-                        fields:
-                            product_name: //table[@id='checkout-review-table']/tbody//td[h3= '%productName%']
-                            product_price: //table[@id='checkout-review-table']/tbody/tr[./td/h3[contains(.,'%productName%')]]/td[2]/span[contains(.,'%price%')]
-                            product_qty: //table[@id='checkout-review-table']/tbody/tr[./td/h3[contains(.,'%productName%')]]/td[3][contains(.,'%qty%')]
-                            product_subtotal: //table[@id='checkout-review-table']/tbody/tr[./td/h3[contains(.,'%productName%')]]/td[4][contains(.,'%subtotal%')]
-                            subtotal_total: //table[@id='checkout-review-table']/tfoot/tr[contains(.,'Subtotal')]/td[contains(.,'%subtotalTotal%')]
-                            shipping_total: //table[@id='checkout-review-table']/tfoot/tr[contains(.,'Shipping')]/td[contains(.,'%shippingTotal%')]
-                            grand_total: //table[@id='checkout-review-table']/tfoot/tr[contains(.,'Grand Total')]/td[contains(.,'%grandTotal%')]
-                        buttons:
-                            place_order: //button[span='Place Order']
-                        links:
-                            edit_cart: //a[contains(.,'Edit Your Cart')]
-                -
-                    checkout_progress:
-                        xpath: //div[@class='block block-progress opc-block-progress']
-                        fields:
-                            billing_address_checkout: //dt[contains(.,'Billing Address')]/following-sibling::dd[1]/address
-                            shipping_address_checkout: //dt[contains(.,'Shipping Address')]/following-sibling::dd[1]/address
-                            shipping_method_checkout: //dt[contains(.,'Shipping Method')]/following-sibling::dd[1]
-                            payment_method_checkout: //dt[contains(.,'Payment Method')]/following-sibling::dd[1]
-                        links:
-                            billing_address_change_link: //dt[contains(.,'Billing Address')]/a[@href='#billing']
-                            shipping_address_change_link: //dt[contains(.,'Shipping Address')]/a[@href='#payment']
-                            shipping_method_change_link: //dt[contains(.,'Shipping Method')]/a[@href='#shipping_method']
-                            payment_method_change_link: //dt[contains(.,'Payment Method')]/a[@href='#payment']
+                        xpath: //form[@id='easycheckout-form']
+                        
+                        
+#                -
+#                    checkout_progress:
+#                        xpath: //div[@class='block block-progress opc-block-progress']
+#                        fields:
+#                            billing_address_checkout: //dt[contains(.,'Billing Address')]/following-sibling::dd[1]/address
+#                            shipping_address_checkout: //dt[contains(.,'Shipping Address')]/following-sibling::dd[1]/address
+#                            shipping_method_checkout: //dt[contains(.,'Shipping Method')]/following-sibling::dd[1]
+#                            payment_method_checkout: //dt[contains(.,'Payment Method')]/following-sibling::dd[1]
+#                        links:
+#                            billing_address_change_link: //dt[contains(.,'Billing Address')]/a[@href='#billing']
+#                            shipping_address_change_link: //dt[contains(.,'Shipping Address')]/a[@href='#payment']
+#                            shipping_method_change_link: //dt[contains(.,'Shipping Method')]/a[@href='#shipping_method']
+#                            payment_method_change_link: //dt[contains(.,'Payment Method')]/a[@href='#payment']
+            buttons:
+                place_order: //button[@title='Place Order']
             links:
                 order_number: //a[contains(@href, '/sales/order/view/order_id/')]
             messages: &checkoutMessages
@@ -206,7 +198,7 @@ onepage_checkout:
                 paypal_alert: There was an error processing your order. Please contact us or try again later.
                 shipping_alert: Please specify shipping method.
                 payment_alert: Please specify payment method.
-                success_checkout: //h1[contains(.,'Your order has been received')]
+                success_checkout: //h2[contains(.,'Thanks for your online order')]
 
 onepage_checkout_success:
     mca: checkout/onepage/success/
@@ -214,7 +206,7 @@ onepage_checkout_success:
     uimap:
         form: &successForm
         messages:
-            success_checkout: //h1[contains(.,'Your order has been received')]
+            success_checkout: //h2[contains(.,'Thanks for your online order')]
         links:
             order_number: //a[contains(@href, '/sales/order/view/order_id/')]
 

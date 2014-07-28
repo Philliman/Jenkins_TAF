@@ -47,8 +47,8 @@
          strict="false"
          verbose="true">
     <testsuites>
-        <testsuite name="Product Tests">
-			<directory suffix=".php">tests/Product</directory>
+        <testsuite name="Test Tests">
+			<directory suffix=".php">tests/Regression</directory>
         </testsuite>
     </testsuites>
     <logging>
