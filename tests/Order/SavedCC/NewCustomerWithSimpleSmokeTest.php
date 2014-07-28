@@ -44,8 +44,8 @@ class Order_SavedCC_NewCustomerWithSimpleSmokeTest extends Mage_Selenium_TestCas
     public function setUpBeforeTests()
     {
         $this->loginAdminUser();
-        $this->navigate('system_configuration');
-        $this->systemConfigurationHelper()->configure('savedcc_without_3Dsecure');
+        $this->navigate('system_configuration', false);
+//        $this->systemConfigurationHelper()->configure('savedcc_without_3Dsecure');
     }
 
     protected function assertPreConditions()
@@ -58,18 +58,18 @@ class Order_SavedCC_NewCustomerWithSimpleSmokeTest extends Mage_Selenium_TestCas
      *
      * @test
      */
-    public function createSimpleProduct()
-    {
-        //Data
-        $productData = $this->loadData('simple_product_for_order', NULL, array('general_name', 'general_sku'));
-        //Steps
-        $this->navigate('manage_products');
-        $this->productHelper()->createProduct($productData);
-        //Verifying
-        $this->assertTrue($this->successMessage('success_saved_product'), $this->messages);
-
-        return $productData['general_sku'];
-    }
+//    public function createSimpleProduct()
+//    {
+//        //Data
+//        $productData = $this->loadData('simple_product_for_order', NULL, array('general_name', 'general_sku'));
+//        //Steps
+//        $this->navigate('manage_products');
+//        $this->productHelper()->createProduct($productData);
+//        //Verifying
+//        $this->assertTrue($this->successMessage('success_saved_product'), $this->messages);
+//
+//        return $productData['general_sku'];
+//    }
 
     /**
      * @depends createSimpleProduct

@@ -56,23 +56,27 @@ shipping_address_req: &shippingReq
     shipping_telephone: '(555) 555-5555'
 
 #<------------Billing Address ALL------------>
-billing_address_all: &billingAll
+billing_address_all: &billingAllnew
     address_choice: new
     billing_prefix: 'Mr(billing)'
     billing_first_name: 'Steven(billing)'
+    billing_zip_code: '94306'
     billing_middle_name: 'Y(billing)'
     billing_last_name: 'Stevenson(billing)'
+    billing_email: 'kmdtesterphil@gmail.com'
     billing_suffix: 'Jr(billing)'
     billing_company: 'home(billing)'
+    billing_country: 'United States'
+    billing_city: 'Palo Alto'
+    billing_town: 'Palo Alto'
     billing_street_address_1: 'street_address_1(billing)'
     billing_street_address_2: 'street_address_2(billing)'
-    billing_city: 'Palo Alto'
-    billing_country: 'United States'
     billing_state: California
-    billing_zip_code: '94306'
-    billing_telephone: '091019019(billing)'
-    billing_fax: '0919327869(billing)'
-    billing_save_in_address_book: yes
+    billing_telephone: '091019019'
+    billing_password: 'kmd12345'
+    billing_confirm_password: 'kmd12345'
+    
+#    billing_save_in_address_book: yes
 
 #<------------Shipping Address ALL------------>
 shipping_address_all: &shippingAll
@@ -477,10 +481,10 @@ saved_american_express: &americanExpressSavedCC
 saved_visa: &visaSavedCC
     name_on_card: 'Test Account'
     card_type: 'Visa'
-    card_number: 'YOUR CREDENTIALS'
-    expiration_month: 'YOUR CREDENTIALS'
-    expiration_year: 'YOUR CREDENTIALS'
-    card_verification_number: 'YOUR CREDENTIALS'
+    card_number: '4111111111111111'
+    expiration_month: '01 - January'
+    expiration_year: '2018'
+    card_verification_number: '123'
 
 saved_mastercard: &mastercardSavedCC
     name_on_card: 'Test Account'
@@ -643,12 +647,18 @@ payment_check_money: &checkMoney
     payment_method: Check / Money order
 
 payment_saved_cc_visa: &savedCCVisa
-    payment_method: Credit Card (saved)
+    payment_method: Credit Card
     payment_info: *visaSavedCC
 
 payment_paypal_direct_uk: &paypalDirectUkMastercard
     payment_method: PayPal Direct Payment Payflow Edition
     payment_info: *mastercardElse
+    
+payment_paypal_direct_nz: &paypalDirectUkMastercard
+    payment_method: PayPal with my PayPal account
+    payment_info: *mastercardElse
+    username: 'kmd.nz.paypal@kathmandu.co.nz'
+    password: 'Password1'
 
 payment_paypal_direct: &paypalDirectMastercard
     payment_method: PayPal Direct Payment
@@ -1189,3 +1199,23 @@ gift_messages_with_empty_fields_expected:
             to: shipping_Steven shipping_Stevenson
             from: billing_Steven billing_Stevenson
             message: How you doing?
+
+
+#<------------Test Customer, Saved CC, ShippingSameAsBilling------------>
+order_testCustmoer_savedcc:
+    store_view: Default Store View
+    account_data:
+        customer_group: General
+        customer_email: %noValue%
+    products_to_add:
+        product_1: &product
+            filter_sku: 40390441
+            qty_to_add: 2
+            product_size: label=S (In Clearance)
+        product_2: %noValue%
+    coupons:
+        coupon_1: %noValue%
+    billing_addr_data: *billingAllnew
+    shipping_addr_data: *shippingSameAsBilling
+    payment_data: *savedCCVisa
+    shipping_data: %noValue%
