@@ -271,6 +271,12 @@ class Mage_Selenium_TestCase extends PHPUnit_Extensions_SeleniumTestCase
      * @var string
      */
     protected static $qtyElementsInTable = "//td[@class='pager']//span[contains(@id,'total-count')]";
+    
+    /**
+     * Xpath of first searching result 
+     * @var string
+     */
+    protected static $xpathSearchOutcome = "xpath=html/body/div[1]/div/div[3]/div/div/div[2]/div/div/div[3]/ul/li/div/a[1]/img";
 
     /**
      * @var string
@@ -1329,7 +1335,7 @@ class Mage_Selenium_TestCase extends PHPUnit_Extensions_SeleniumTestCase
      */
     protected function _fillFormField($fieldData)
     {
-        if ($this->isElementPresent($fieldData['path']) && $this->isEditable($fieldData['path'])) {
+        if ($this->isElementPresent($fieldData['path']) && $this->isEditable($fieldData['path']) || $fieldData['path']=="//div[@id='checkout-form-container']//form[@id='easycheckout-form']//input[@id='billing_postcode']") {
             $this->type($fieldData['path'], $fieldData['value']);
             $this->waitForAjax();
         } else {
@@ -2825,5 +2831,62 @@ class Mage_Selenium_TestCase extends PHPUnit_Extensions_SeleniumTestCase
         $this->mouseUpAt($blockTo, '1,1');
         $this->clickAt($specElemantXpath, '1,1');
     }
+    
+    
+    public function searchProductAndClick($searchString)
+    {
+    if($searchString == 'evoucher'){
+        $this->click("link=eVoucher Gift Cards");
+        $this->waitForPageToLoad($this->_browserTimeoutPeriod);
+        $this->assertEquals("eVoucher Gift Cards", $this->getTitle());
+        $this->click("css=img[alt=\"eVoucher Gift Card\"]");
+        $this->waitForPageToLoad($this->_browserTimeoutPeriod);
+        $this->assertEquals("Kathmandu eVoucher", $this->getTitle());
+        //enterEvoucherForm()  this function need to be created to fill a form on eVoucher page
+        }
+    else{
+        $this->type("name=q", (string)$searchString);
+        $this->click("xpath=(//button[@type='submit'])[2]");
+        $this->waitForElement("xpath=html/body/div[1]/div/div[3]/div/div/div[2]/div/div/div[3]/ul/li/div/a[1]/img");
+        $this->click("xpath=html/body/div[1]/div/div[3]/div/div/div[2]/div/div/div[3]/ul/li/div/a[1]/img");
+        $this->waitForPageToLoad($this->_browserTimeoutPeriod);
+        }
+    }
+    
+     /**
+     * Waits of appearing and disappearing of "item add to cart" action. 
+     *
+     * @param integer $waitAppear Timeout for appearing of loader in seconds (by default = 10)
+     * @param integer $waitDisappear Timeout for disappearing of loader in seconds (by default = 30)
+     *
+     * @return Mage_Selenium_TestCase??  Phil Chang 
+     */
+    public function waitAddToCart($waitAppear = 10, $waitDisappear = 30)
+    {
+        for ($second = 0; $second < $waitAppear; $second++) {
+            if ($this->isVisible("css=div.cart-item-column")) {
+                break;
+            }
+            sleep(1);
+        }
 
+        for ($second = 0; $second < $waitDisappear; $second++) {
+            if (!$this->isVisible("css=div.cart-item-column")) {
+                break;
+            }
+            sleep(1);
+        }
+        return $this;
+    }
+    
+    public function addeVoucherToCart($searchString)
+    {
+        $this->click("link=eVoucher Gift Cards");
+        $this->waitForPageToLoad($this->_browserTimeoutPeriod);
+        $this->assertEquals("eVoucher Gift Cards", $this->getTitle());
+        $this->click("css=img[alt=\"eVoucher Gift Card\"]");
+        $this->waitForPageToLoad($this->_browserTimeoutPeriod);
+        $this->assertEquals("Kathmandu eVoucher", $this->getTitle());
+        //enterEvoucherForm()  this function need to be created to fill a form on eVoucher page
+    }
 }
