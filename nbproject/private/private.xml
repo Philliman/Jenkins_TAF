@@ -12,13 +12,18 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/philch/Documents/GitHub/Jenkins_TAF/AdminUser.xml</file>
-            <file>file:/C:/Users/philch/Documents/GitHub/Jenkins_TAF/tests/AdminUser/DeleteTest.php</file>
+            <file>file:/C:/Users/philch/Documents/GitHub/Jenkins_TAF/config/browsers.yml</file>
+            <file>file:/C:/Users/philch/Documents/GitHub/Jenkins_TAF/tests/Regression/Helper.php</file>
+            <file>file:/C:/Users/philch/Documents/GitHub/Jenkins_TAF/data/ProductAttributes.yml</file>
+            <file>file:/C:/Users/philch/Documents/GitHub/Jenkins_TAF/tests/Regression/Create/CreateOrders.php</file>
             <file>file:/C:/Users/philch/Documents/GitHub/Jenkins_TAF/tests/AdminUser/deleteAdminUsers.php</file>
-            <file>file:/C:/Users/philch/Documents/GitHub/Jenkins_TAF/tests/AdminUser/CreateTest.php</file>
-            <file>file:/C:/Users/philch/Documents/GitHub/Jenkins_TAF/lib/Mage/Selenium/Helper/Page.php</file>
             <file>file:/C:/Users/philch/Documents/GitHub/Jenkins_TAF/lib/Mage/Selenium/TestCase.php</file>
-            <file>file:/C:/Users/philch/Documents/GitHub/Jenkins_TAF/.gitignore</file>
+            <file>file:/C:/Users/philch/Documents/GitHub/Jenkins_TAF/uimaps/frontend/Checkout.yml</file>
+            <file>file:/C:/Users/philch/Documents/GitHub/Jenkins_TAF/config/local.yml</file>
+            <file>file:/C:/Users/philch/Documents/GitHub/Jenkins_TAF/data/SKU.yml</file>
+            <file>file:/C:/Users/philch/Documents/GitHub/Jenkins_TAF/data/Customers.yml</file>
+            <file>file:/C:/Users/philch/Documents/GitHub/Jenkins_TAF/data/SalesOrder.yml</file>
+            <file>file:/C:/Users/philch/Documents/GitHub/Jenkins_TAF/tests/Order/Create/CheckingValidationTest.php</file>
         </group>
     </open-files>
 </project-private>

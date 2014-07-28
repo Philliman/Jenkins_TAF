@@ -34,8 +34,8 @@ browsers:
     default: *firefox
 applications:
     magento: &magento
-        frontendUrl: http://staging.kmddev.co.nz/
-        adminUrl: http://master.staging.kmddev.co.nz/admin/
+        frontendUrl: http://load.kmddev.com.au/
+        adminUrl: http://load.kmddev.com.au/admin/
         adminLogin: taf_tester
         adminPassword: tester123
     default: *magento
