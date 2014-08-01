@@ -234,6 +234,7 @@ class Regression_Helper extends Mage_Selenium_TestCase
         if ($this->isElementPresent($xpath)) {
             $text = $this->getText($xpath);
             $orderId = trim(substr($text, strpos($text, "#") + 1, -(strpos(strrev($text), "|") + 1)));
+            print "Created order Id : ".$orderId;
             $this->addParameter('order_id', '#' . $orderId);
             return $orderId;
         }
@@ -271,6 +272,7 @@ class Regression_Helper extends Mage_Selenium_TestCase
         if ($productData) {
             $this->searchProductAndClick($productSku);
             if($productSize){
+                $this->waitForElement("id=size");
                 $this->select("id=size", $productSize);
             }
             if($qty){
