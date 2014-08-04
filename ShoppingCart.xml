@@ -63,7 +63,7 @@
 		<log type="tap" target="./tmp/logfile.tap"/>
         <log type="pmd-xml" target="./tmp/pmd.xml" cpdMinLines="5" cpdMinMatches="70"/>
         
-        <log type="junit" target="./tmp/logfile.xml" logIncompleteSkipped="false"/>
+        <log type="junit" target="./tmp/junit.xml" logIncompleteSkipped="false"/>
         <log type="test-xml" target="./tmp/logfile.xml" logIncompleteSkipped="false"/>
         <log type="testdox-html" target="./tmp/testdox.html"/>
         <log type="testdox-text" target="./tmp/testdox.txt"/>
