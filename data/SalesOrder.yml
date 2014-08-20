@@ -60,18 +60,18 @@ billing_address_all: &billingAllnew
     address_choice: new
     billing_prefix: 'Mr(billing)'
     billing_first_name: 'Steven(billing)'
-    billing_zip_code: '94306'
+    billing_zip_code: '8022'
     billing_middle_name: 'Y(billing)'
     billing_last_name: 'Stevenson(billing)'
     billing_email: 'kmdtesterphil@gmail.com'
     billing_suffix: 'Jr(billing)'
-    billing_company: 'home(billing)'
-    billing_country: 'United States'
-    billing_city: 'Palo Alto'
-    billing_town: 'Palo Alto'
+    billing_company: 'Kathmandu(billing)'
+    billing_country: 'New Zealand'
+    billing_city: 'Christchurch'
+    billing_town: 'Bryndwr'
     billing_street_address_1: 'street_address_1(billing)'
     billing_street_address_2: 'street_address_2(billing)'
-    billing_state: California
+    billing_state: Canterbury
     billing_telephone: '091019019'
     billing_password: 'kmd12345'
     billing_confirm_password: 'kmd12345'
@@ -1209,9 +1209,9 @@ order_testCustmoer_savedcc:
         customer_email: %noValue%
     products_to_add:
         product_1: &product
-            filter_sku: 40390441
+            filter_sku: 61467000
             qty_to_add: 2
-            product_size: label=S (In Clearance)
+            product_size: label=500ML
         product_2: %noValue%
     coupons:
         coupon_1: %noValue%
